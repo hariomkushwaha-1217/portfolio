@@ -75,6 +75,19 @@ themeBtn.addEventListener('click', () => {
     : '<i class="fas fa-moon"></i>';
 });
 
+function applySystemTheme() {
+  const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  if (isDark) {
+    document.body.classList.add('dark');
+    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+  } else {
+    document.body.classList.remove('dark');
+    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+  }
+}
+applySystemTheme();
+
 document.addEventListener("click", (e) => {
   if (
     !navLinks.contains(e.target) &&
